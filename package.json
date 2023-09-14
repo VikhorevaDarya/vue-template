@@ -5,11 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "preview": "vite preview"
   },
   "dependencies": {
     "pinia": "2.1.6",
@@ -33,5 +29,6 @@
     "vite": "4.4.9",
     "vite-plugin-mkcert": "1.16.0",
     "vue-tsc": "1.8.8"
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
