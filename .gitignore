@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 .yarn
+.vscode
 .DS_Store
 dist
 dist-ssr
