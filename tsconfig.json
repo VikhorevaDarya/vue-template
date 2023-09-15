@@ -1,5 +1,4 @@
 {
-  "files": [],
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -16,18 +15,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsx": "react-jsx",
     "baseUrl": ".",
-    "types": ["vite-plugin-svg-icons/client"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "images/*": ["./src/assets/images/*"],
+      "icons/*": ["./src/assets/icons/*"],
+      "fonts/*": ["./src/assets/fonts/*"],
+      "styles/*": ["./src/styles/*"]
     }
   },
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ]
+  "include": ["src", "src/types/global.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
