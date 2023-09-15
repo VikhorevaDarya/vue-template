@@ -1,0 +1,23 @@
+:root {
+  --gap: 2rem;
+  --border-radius: 1.2rem;
+  --tablet-screen: 745;
+  --desktop-screen: 1200;
+  --wide-screen: 1440;
+  --transition-duration-ms: 300;
+  --font-family-default: 'Poppins';
+  --font-size-default: 12;
+  --base-z-index: 1;
+  --negative-z-index: -1;
+  --overlay-z-index: calc(var(--base-z-index) * 99);
+  --content-z-index: calc(var(--overlay-z-index) + 1);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

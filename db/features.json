@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Typescript"
+  },
+  {
+    "id": 2,
+    "name": "Zustand"
+  },
+  {
+    "id": 3,
+    "name": "React Router"
+  },
+  {
+    "id": 4,
+    "name": "AntD UI Kit"
+  },
+  {
+    "id": 5,
+    "name": "SASS"
+  }
+]

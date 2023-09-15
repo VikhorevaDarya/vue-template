@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use 'sass:color';
+@use 'utils';
+@use 'themes';
+
+// Module
+@mixin parse-module($module-map, $prefix: false) {
+  @each $module-key, $module-value in $module-map {
+    @if ($prefix) {
+      #{$prefix}-#{$module-key}: #{$module-value};
+    } @else {
+      #{$module-key}: #{$module-value};
+    }
+  }
+}
+
+// Media
+@mixin tablet-screen {
+  @media only screen and (min-width: ((#{var(--tablet-screen)} + 1) * 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop-screen {
+  @media only screen and (min-width: ((#{var(--desktop-screen)} + 1) * 1px)) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media only screen and (min-width: ((#{var(--wide-screen)} + 1) * 1px)) {
+    @content;
+  }
+}
+
+// Theme
+@mixin themify($property, $theme-color, $adjust: false, $level: 0%) {
+  @each $theme-name in light, dark {
+    html[class='theme-#{$theme-name}'] & {
+      @if $adjust == 'blackness' {
+        #{$property}: color.adjust(
+          utils.get-theme-color($themes, $theme-name, $theme-color),
+          $blackness: $level
+        );
+      } @else if $adjust == 'lightness' {
+        #{$property}: color.adjust(
+          utils.get-theme-color($themes, $theme-name, $theme-color),
+          $lightness: $level
+        );
+      } @else {
+        #{$property}: utils.get-theme-color($themes, $theme-name, $theme-color);
+      }
+    }
+  }
+}
+
+@mixin in-theme($theme-name) {
+  html[class='theme-#{$theme-name}'] & {
+    @content;
+  }
+}
+
+// Typography
+@mixin set-font($size, $line-height: false) {
+  font-size: $size;
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+@mixin text($color, $weight: 400) {
+  @include themify('color', $color);
+
+  $font-weights: (
+    '100': 100,
+    '200': 200,
+    '300': 300,
+    '400': 400,
+    '500': 500,
+    '600': 600,
+    '700': 700,
+    '800': 800,
+    '900': 900,
+  );
+
+  font-weight: map-get($font-weights, $weight);
+}
+
+@mixin line-clamp($lines: false) {
+  display: -webkit-box;
+  overflow: hidden;
+
+  @if $lines {
+    -webkit-line-clamp: calc(1 * $lines);
+  } @else {
+    -webkit-line-clamp: calc(1);
+  }
+
+  -webkit-box-orient: vertical;
+}

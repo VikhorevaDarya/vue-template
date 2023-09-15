@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview"
+    "build": "vite build",
+    "start:json-server": "yarn node json.server.cjs",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
     "pinia": "2.1.6",
@@ -23,12 +27,12 @@
     "@vue/tsconfig": "0.4.0",
     "eslint": "8.46.0",
     "eslint-plugin-vue": "9.16.1",
-    "fast-glob": "^3.3.1",
+    "fast-glob": "s3.3.1",
     "npm-run-all": "4.1.5",
     "prettier": "3.0.0",
     "typescript": "5.1.6",
-    "vite": "^4.4.9",
-    "vite-plugin-image-optimizer": "^1.1.7",
+    "vite": "4.4.9",
+    "vite-plugin-image-optimizer": "1.1.7",
     "vite-plugin-mkcert": "1.16.0",
     "vue-tsc": "1.8.8"
   },

@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@function mergeThemes($components-themes...) {
+  $theme-light: ();
+  $theme-dark: ();
+
+  @each $theme in $components-themes {
+    $theme-dark-map: map.get($theme, 'dark');
+    $theme-light-map: map.get($theme, 'light');
+
+    @if ($theme-dark-map != null) {
+      $theme-dark: map.merge($theme-dark, $theme-dark-map);
+    }
+
+    @if ($theme-light-map != null) {
+      $theme-light: map.merge($theme-light, $theme-light-map);
+    }
+  }
+
+  $themes: (
+    'dark': $theme-dark,
+    'light': $theme-light,
+  );
+
+  @return $themes;
+}
+
+@function get-theme-color($themes, $theme-name, $theme-color) {
+  $theme-colors: map.get($themes, $theme-name);
+
+  @if $theme-colors {
+    @return map.get($theme-colors, $theme-color);
+  }
+
+  @return null;
+}
+
+@function gap($increment: false) {
+  @if $increment {
+    @return calc(#{var(--gap)} * #{$increment});
+  }
+
+  @return var(--gap);
+}
+
+@function border-radius($increment: false) {
+  @if $increment {
+    @return calc(#{var(--border-radius)} * #{$increment});
+  }
+
+  @return var(--border-radius);
+}
+
+@function half($size) {
+  @return math.div($size, 2);
+}

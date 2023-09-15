@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use 'colors';
+@use 'utils';
+
+$theme-base-common: (
+  primary: colors.$purple-100,
+  drop: colors.$drop,
+);
+
+$theme-base-dark: map.merge(
+  (
+    main-bg: colors.$dark-100,
+    text-color: colors.$white-100,
+  ),
+  $theme-base-common
+);
+
+$theme-base-light: map.merge(
+  (
+    main-bg: colors.$white-100,
+    text-color: colors.$dark-100,
+  ),
+  $theme-base-common
+);
+
+$themes: utils.mergeThemes(
+  (
+    dark: $theme-base-dark,
+    light: $theme-base-light,
+  )
+) !default;

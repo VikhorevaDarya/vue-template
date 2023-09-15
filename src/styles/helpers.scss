@@ -1,0 +1,91 @@
+%flex {
+  display: flex;
+}
+
+%flex-column {
+  @extend %flex;
+  flex-direction: column;
+}
+
+%flex-align-center {
+  @extend %flex;
+  align-items: center;
+}
+
+%flex-align-start {
+  @extend %flex;
+  align-items: start;
+}
+
+%flex-justify-end {
+  @extend %flex;
+  justify-content: end;
+}
+
+%flex-column-reverse {
+  @extend %flex;
+  flex-direction: column-reverse;
+}
+
+%flex-row {
+  @extend %flex;
+  flex-flow: row wrap;
+}
+
+%flex-row-nowrap {
+  @extend %flex;
+  flex-flow: row nowrap;
+}
+
+%flex-row-reverse {
+  @extend %flex;
+  flex-direction: row-reverse;
+}
+
+%flex-start {
+  @extend %flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+%flex-center {
+  @extend %flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-between {
+  @extend %flex;
+  justify-content: space-between;
+}
+
+%absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+%absolute-center-x {
+  position: absolute;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+%absolute-center-y {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+}

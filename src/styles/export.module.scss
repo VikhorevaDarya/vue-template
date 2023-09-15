@@ -1,0 +1,14 @@
+@use 'sass:meta';
+@use 'sass:map';
+@use 'mixins';
+@use 'colors';
+@use 'themes';
+
+$colors-map: meta.module-variables('colors');
+$themes-map: map.get(meta.module-variables('themes'), 'themes');
+
+:export {
+  @include mixins.parse-module($colors-map);
+  @include mixins.parse-module(map-get($themes-map, 'dark'), 'dark');
+  @include mixins.parse-module(map-get($themes-map, 'light'), 'light');
+}
