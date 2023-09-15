@@ -1,7 +1,3 @@
-<script setup lang="ts">
-//import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <header>
     <div class="wrapper">
@@ -15,6 +11,11 @@
   <!-- <RouterView /> -->
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import '@/styles/index.scss'
+//import { RouterLink, RouterView } from 'vue-router'
+</script>
+
+<style lang='scss' scoped>
 
 </style>
